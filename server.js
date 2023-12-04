@@ -1,4 +1,3 @@
-import connectToMongoDB from "./db.js";
 import express from "express";
 import dotenv from 'dotenv';
 import Auth from './Routes/Auth.js';

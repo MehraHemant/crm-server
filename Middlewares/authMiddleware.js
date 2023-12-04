@@ -8,7 +8,7 @@ export default async (req, res, next) => {
     try {
       if (token) {
         const string = jwt.verify(token, process.env.JWT_CODE);
-        const user = await User.findById(string.id);
+        const user = await User.findById(string.id).populate("admin manager");
         req.user = user;
       }
       next();

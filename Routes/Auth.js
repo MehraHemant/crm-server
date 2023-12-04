@@ -72,7 +72,7 @@ router.post("/resetpassword", async (req, res) => {
   try {
     const token = await user.createPswrdRstToken();
     await user.save();
-    const resetURL = `Hi ${user.first_name}, Please follow this link to reset your password. This link is valid till 10 minutes from now. <a href="https://zen-student-portfolio-client.vercel.app/resetpassword/${token}">Click Here</a>`;
+    const resetURL = `Hi ${user.first_name}, Please follow this link to reset your password. This link is valid till 10 minutes from now. <a href="https://crm-client-tau.vercel.app/resetpassword/${token}">Click Here</a>`;
     const data = {
       to: email,
       subject: "Password Reset",
