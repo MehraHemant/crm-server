@@ -29,6 +29,8 @@ const userSchema = new mongoose.Schema({
     default: "admin",
     required: true,
   },
+  company: String,
+  address: String,
   admin: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",

@@ -28,7 +28,7 @@ router.post("/create", authMiddleware, async (req, res) => {
 
 router.get("/all", authMiddleware, async (req, res) => {
   try {
-    var lead = await Leads.find({}).populate("creator lead_owner");
+    var lead = await Leads.find({lead_owner:req.user?.admin || req.user._id}).populate("creator lead_owner");
     return res.status(200).json({ data: lead });
   } catch (err) {
     return res.status(500).json({ msg: err.message });

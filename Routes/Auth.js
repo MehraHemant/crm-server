@@ -146,7 +146,7 @@ router.delete("/user/:id", authMiddleware, async (req, res) => {
 router.get("/users", authMiddleware, async (req, res) => {
   try {
     if (req.user.role == "admin") {
-      var users = await User.find({ role: ["manager", "employee"] }).populate(
+      var users = await User.find({ role: ["manager", "employee"], admin: req.user._id }).populate(
         "admin manager"
       );
     } else {
