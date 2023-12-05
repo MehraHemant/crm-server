@@ -3,6 +3,7 @@ import authMiddleware from "../Middlewares/authMiddleware.js";
 import Leads from "../Models/Leads.js";
 import adminCheck from "../Middlewares/adminCheck.js";
 import { roleCheck } from "../Middlewares/roleCheck.js";
+import { sendMail } from "../utils/sendMail.js";
 
 const router = express.Router();
 
