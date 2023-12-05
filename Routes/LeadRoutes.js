@@ -11,10 +11,10 @@ router.post("/create", authMiddleware, async (req, res) => {
     const lead = await Leads.create({
       ...req.body,
       creator: req.user._id,
-      lead_owner: req.user.manager?._id || req.user.admin?._id || req.user._id,
+      lead_owner: req.user.manager?._id || req.user?.admin?._id || req.user._id,
     });
     const data = {
-      to: req.user.role == admin ? req.user.email : req.user.admin.email,
+      to: req.user.role == "admin" ? req.user.email : req.user.admin.email,
       subject: "lead created",
       html: `A lead is created by ${req.user.first_name}.`
     }
