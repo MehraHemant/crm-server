@@ -20,7 +20,7 @@ app.use('/leads', Leads);
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => app.listen(process.env.PORT))
+  .then(() => app.listen(process.env.PORT || 8080))
   .then(() =>
     console.log(
       "Connected! Server is running on http://localhost:" +

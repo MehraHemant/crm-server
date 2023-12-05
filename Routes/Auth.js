@@ -195,5 +195,14 @@ router.get("/managers", authMiddleware, async (req, res) => {
   }
 });
 
+router.get("/", async(req, res)=>{
+  res.send(`<h1>Welcome to CRM server</h1>
+  <div>Endpoints</div>
+  <ul>
+  <li>/registration</li>
+  <li>/login</li>
+  <li>/login_with_token</li>
+  </ul>`)
+})
 
 export default router;
